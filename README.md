@@ -5,10 +5,10 @@ This program takes one .bmp (Bitmap image file) and converts and parses the data
 ## Learning Goals:
 These are the learning goals I have for this project. 
 
-  *Refresher on C++ coding  
-  *Header File Basics  
-  *File IO refresher  
-  *Navigating Different File Formats  
+  * Refresher on C++ coding  
+  * Header File Basics  
+  * File IO refresher  
+  * Navigating Different File Formats  
   
   
   
