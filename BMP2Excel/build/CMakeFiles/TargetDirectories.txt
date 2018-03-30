@@ -1,0 +1,3 @@
+/home/hunka/Documents/Projects/BMP2Excel/build/CMakeFiles/edit_cache.dir
+/home/hunka/Documents/Projects/BMP2Excel/build/CMakeFiles/rebuild_cache.dir
+/home/hunka/Documents/Projects/BMP2Excel/build/CMakeFiles/Byte2Int.dir
