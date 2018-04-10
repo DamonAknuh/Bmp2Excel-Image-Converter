@@ -12,6 +12,7 @@
 #include <cassert>
 #include <functional>
 #include <cstring>
+#include <algorithm>
 using std::cout;
 using std::endl;
 
@@ -158,9 +159,9 @@ PIXEL_ARRAY Read_File(std::string Filename){
         y = (unsigned char)c;
         PIX_VALUES.set_third ( Byte_to_int(y) );
         PIX_ROW.push_back(PIX_VALUES);
-         // if ( i == HEADER_DATA.IMG_HEIGHT) {
-         //    cout << "[" << PIX_VALUES.get_first() << "," << PIX_VALUES.get_second() << "," << PIX_VALUES.get_third() << "] ";
-         // }
+          if ( i == HEADER_DATA.IMG_HEIGHT) {
+             cout << "[" << PIX_VALUES.get_first() << "," << PIX_VALUES.get_second() << "," << PIX_VALUES.get_third() << "] ";
+          }
 
       }
       // cout << "\n[";
@@ -179,12 +180,14 @@ PIXEL_ARRAY Read_File(std::string Filename){
 
     cout << "--File Closed--" <<endl;
     cout << "______________________________________\n" << endl;
-
+    std::reverse(PIXELS.begin(), PIXELS.end());
 
   }else {
     cout << "ERROR: UNABLE_TO_OPEN_FILE: " << Filename << std::endl;
     exit(0);
   }
+
+
 
   return PIXELS;
 }
