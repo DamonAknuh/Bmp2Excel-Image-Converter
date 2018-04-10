@@ -159,9 +159,9 @@ PIXEL_ARRAY Read_File(std::string Filename){
         y = (unsigned char)c;
         PIX_VALUES.set_third ( Byte_to_int(y) );
         PIX_ROW.push_back(PIX_VALUES);
-          if ( i == HEADER_DATA.IMG_HEIGHT) {
-             cout << "[" << PIX_VALUES.get_first() << "," << PIX_VALUES.get_second() << "," << PIX_VALUES.get_third() << "] ";
-          }
+          // if ( i == HEADER_DATA.IMG_HEIGHT) {
+          //    cout << "[" << PIX_VALUES.get_first() << "," << PIX_VALUES.get_second() << "," << PIX_VALUES.get_third() << "] ";
+          // }
 
       }
       // cout << "\n[";
