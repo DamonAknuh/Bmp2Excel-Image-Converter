@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5.1)
-project(IMAGE_PROCESSING)
+project(Bmp2Excel-Image-Converter)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -pedantic -Wall -Wextra")
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -std=c++14")
