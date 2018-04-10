@@ -1,1 +1,0 @@
-/usr/bin/c++     -pedantic -Wall -Wextra  -std=c++14   CMakeFiles/Byte2Int.dir/Byte2Int.cpp.o CMakeFiles/Byte2Int.dir/main.cpp.o  -o Byte2Int 
