@@ -44,8 +44,6 @@ PIXEL_ARRAY Read_File(std::string Filename){
   if ( InputFile.is_open() ){
     char TEMP[4];
 
-
-
     cout << "--File " << Filename << " Is Open--" << endl;
     cout << "______________________________________\n" << endl;
     cout << "--Reading File--\n" << endl;
@@ -123,7 +121,7 @@ PIXEL_ARRAY Read_File(std::string Filename){
     cout << "Pixel Row Size: \t" << HEADER_DATA.IMG_WIDTH*3 << " (Bytes)"<<endl;
     cout << "Padded Row Size: \t" << HEADER_DATA.ROW_SIZE  << " (Bytes)" <<endl;
     HEADER_DATA.DIFFERENCE = HEADER_DATA.ROW_SIZE - (HEADER_DATA.IMG_WIDTH*3);
-    cout << "Difference: \t\t" << HEADER_DATA.DIFFERENCE << endl;
+    cout << "Difference: \t\t" << HEADER_DATA.DIFFERENCE << " (Bytes)" << endl;
     HEADER_DATA.ARRAY_SIZE = HEADER_DATA.ROW_SIZE * abs(HEADER_DATA.IMG_HEIGHT);
     cout << "Array Size: \t\t" << HEADER_DATA.ARRAY_SIZE  << " \n--" << endl;
 
@@ -131,7 +129,6 @@ PIXEL_ARRAY Read_File(std::string Filename){
     cout << "--Reading Pixel Data at offset " << HEADER_DATA.DATA_START << "--" << endl;
     InputFile.seekg(HEADER_DATA.DATA_START);
     HEADER_DATA.NUM_VALUES = HEADER_DATA.BITS_PER_PIX/8;
-
 
 
 
@@ -159,23 +156,16 @@ PIXEL_ARRAY Read_File(std::string Filename){
         y = (unsigned char)c;
         PIX_VALUES.set_third ( Byte_to_int(y) );
         PIX_ROW.push_back(PIX_VALUES);
-          // if ( i == HEADER_DATA.IMG_HEIGHT) {
-          //    cout << "[" << PIX_VALUES.get_first() << "," << PIX_VALUES.get_second() << "," << PIX_VALUES.get_third() << "] ";
-          // }
-
+        //cout << "[" << PIX_VALUES.get_first() << "," << PIX_VALUES.get_second() << "," << PIX_VALUES.get_third() << "] ";
       }
-      // cout << "\n[";
-      // for (int x = 0; x < HEADER_DATA.DIFFERENCE; x++){
-      //   InputFile.get(c);
-      //   y = (unsigned char)c;
-      //   cout << Byte_to_int(y) << ",";
-      // }
-      // cout << "]\n";
-      //cout << InputFile.tellg()<< endl;
+      for (int p=0; p < HEADER_DATA.DIFFERENCE ; p++){
+        InputFile.get(c);
+      }
+      // cout << InputFile.tellg() <<  endl;
+      // cout << i << " " << endl;
       PIXELS.push_back(PIX_ROW);
     }
     std::cout <<"\n--" << PIXELS.size()*PIXELS.at(0).size() << " Pixels have been stored--" << endl;
-
     InputFile.close();
 
     cout << "--File Closed--" <<endl;
@@ -210,21 +200,19 @@ void Write_Excel_File(PIXEL_ARRAY DATA, std::string Filename){
       }
       OutputFile << endl;
       for (auto B: A){
-        OutputFile << B.get_second()+255 << ",";
+        OutputFile << B.get_second() << ",";
       }
       OutputFile << endl;
       for (auto B: A){
-        OutputFile << B.get_third()+510 << ",";
+        OutputFile << B.get_third() << ",";
       }
       OutputFile << endl;
     }
-
-
-
-
-
-
-
+    OutputFile << "=";
+    // for (int i = 1; i <= 2500 ; i = i +3){
+    //   //OutputFile << "$" << i << ":" << "$" << i << ",";
+    //   cout << "$" << i << ":" << "$" << i << ",";
+    // }
     cout << "--File Closed--" <<endl;
     cout << "______________________________________\n" << endl;
     OutputFile.close();
