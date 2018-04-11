@@ -40,4 +40,4 @@ Here is a few examples and images showing the output of the program.
 
 I have a lot of future plans for this project. I think its a great first step into data processing, and manipulating the data of these images. I plan to look into expanding this project into other formats including jpeg, or png.  
 
-This project also would allows a good base for image manipulation. The pixel data that goes into creating the spreadsheets can also be put into other more USEFULL purposes.  In the future I plan to add image editing tools such as resizing, croping, or image filteration. 
+This project also is a good base for later image manipulation. The pixel data made from creating the spreadsheets can also be put into other more USEFUL purposes.  In the future I plan to add image editing tools such as resizing, croping, or image filteration. 
