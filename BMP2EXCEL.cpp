@@ -1,5 +1,3 @@
-//SECOND VERSION
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -15,9 +13,6 @@
 #include <algorithm>
 using std::cout;
 using std::endl;
-
-
-//COmment 1
 
 struct HEADER_INFO {
   unsigned int ROW_SIZE; // Row size including padding.
@@ -105,12 +100,6 @@ PIXEL_ARRAY Read_File(std::string Filename){
       InputFile.close();
       exit(1);
     }
-    if (HEADER_DATA.BITS_PER_PIX < 24){
-      cout << "ERROR: DIFFERENT_BITS/PIXEL_EXPECTED" << endl;
-      InputFile.close();
-      exit(1);
-    }
-
 
     //Reading DIB Header SIZE
     InputFile.seekg(0x0E);
@@ -177,8 +166,6 @@ PIXEL_ARRAY Read_File(std::string Filename){
     exit(0);
   }
 
-
-
   return PIXELS;
 }
 
@@ -218,13 +205,8 @@ void Write_Excel_File(PIXEL_ARRAY DATA, std::string Filename){
     OutputFile.close();
 
   }else {
-
     cout << "ERROR: UNABLE_TO_OPEN_FILE: " << Filename << std::endl;
     exit(0);
   }
-
-
-
-
 
 }
